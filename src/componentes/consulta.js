@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import Card from "./card"
+import { Link } from 'react-router-dom';
 
 export default function Consulta() {
     const [tarefas, setTarefas] = useState([])
@@ -15,12 +16,16 @@ export default function Consulta() {
 
     return (
         <div>
-            <h2>Consulta de tarefas</h2>
+            <Link to="/">
+                <button className="btn" data-bs-toggle="button">Voltar para página inicial</button>
+            </Link>
+            <h2 className="text-center">Consulta de tarefas</h2>
+            
             <div className="d-flex flex-wrap">
                 {
                     tarefas.map(tf => <Card tarefa={tf} />)
                 }
             </div> 
-        </div>
+            </div>
     )
 }
