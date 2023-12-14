@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom';
 
 export default function Cadastro() {
     const [titulo, setTitulo] = useState('')
@@ -21,11 +22,13 @@ export default function Cadastro() {
         } else {
           alert("Preencha todos os campos!")
         } 
-       
     }
 
     return (
         <div className="container">
+            <Link to="/">
+             <button className="btn" data-bs-toggle="button">Voltar para página inicial</button>
+            </Link><br></br>
             <h2 className="text-center">Nova tarefa</h2>
             <label className="form-label">Informe o título</label>
 
@@ -43,13 +46,12 @@ export default function Cadastro() {
             <input className="form-control" type="text" placeholder="Informe o status" value={status} onChange={txt => setStatus(txt.target.value)} />
 
             <div className="mt-3 d-flex justify-content-between">
-                <button onClick={salvar} 
-                        className="btn btn-primary">Salvar</button>
+                <button onClick={salvar} className="btn btn-primary">Salvar</button>
                 <button className="btn btn-danger">Cancelar</button>
             </div> 
             
             
- {/* {`${titulo} ${data} ${conteudo}` ${status}} */}
+ {/* {`${titulo} ${data} ${conteudo} ${status}`} */}
 
         </div>
     )
