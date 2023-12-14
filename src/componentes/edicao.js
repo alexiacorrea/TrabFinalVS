@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default function Edicao(){
     const [titulo, setTitulo] = useState('')
@@ -33,7 +34,9 @@ export default function Edicao(){
 
 
     return(
-        <div className="container">
+        <div className="container"><Link to="/">
+        <button className="btn" data-bs-toggle="button">Voltar para página inicial</button>
+    </Link><br></br>
             <h2 className="text-center">Editar Tarefa: {idTarefa} </h2>
             <label className="form-label">Informe o título</label>
             <input 
@@ -76,7 +79,9 @@ export default function Edicao(){
                      onClick={salvar}
                      className="btn btn-primary">
                       Salvar</button>
-                <button className="btn btn-danger">Cancelar</button>
+                <Link to="/tarefas/consultar">
+                   <button className="btn btn-danger">Cancelar</button>
+                </Link>
             </div>                                        
         </div>
     )
